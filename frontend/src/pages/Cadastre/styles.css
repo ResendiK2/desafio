@@ -1,5 +1,10 @@
-#cadastre
-{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#cadastre {
   width: 100vw;
   height: 100vh;
 
@@ -34,4 +39,20 @@
   text-decoration: none; 
   color: #fff;
   text-transform: uppercase 
+}
+
+.cadastre {
+  margin-top: 20px;
+  height: 50px;
+  width: 250px;
+  background-color: #306BAC;
+  border: 1px solid #306BAC;  
+  border-radius: 5px;
+  color: #fff
+}
+
+.cadastre:hover {
+  background-color: #ffff;
+  border: 1px solid #306BAC;   
+  color: #306BAC; 
 }
