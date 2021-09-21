@@ -8,6 +8,8 @@ import InputMask from 'react-input-mask';
 
 import { FcSearch } from 'react-icons/fc';
 
+import { IoReturnUpBackOutline } from 'react-icons/io5';
+
 import './styles.css';
 
 function Cadastre(props) {
@@ -56,7 +58,6 @@ function Cadastre(props) {
                primaryActivity
           })
                .then((res) => {
-                    console.log("boa")
                     setSucess(true);
                })
                .catch((apiError) => {
@@ -67,7 +68,13 @@ function Cadastre(props) {
      return (
           <div id="cadastre">
 
-               <h1>CADASTRAR EMPRESAS</h1>
+               <div className="header">
+
+                    <Link to="/" ><IoReturnUpBackOutline size={25} /> </Link>
+                    <h1>CADASTRAR EMPRESAS</h1>
+
+               </div>
+
                <form id="form">
                     <fieldset id="formContent">
                          <label>CNPJ:</label>
@@ -83,9 +90,15 @@ function Cadastre(props) {
                                    <FcSearch size={25} />
                               </button>
                               :
-                              <button id="cadastreButton" type="submit" onClick={clean}>
-                                   Limpar
-                              </button>
+                              <>
+                                   <button id="cadastreButton" type="submit" onClick={search}>
+                                        <FcSearch size={25} />
+                                   </button>
+                                   <button id="cadastreButton" type="submit" onClick={clean}>
+                                        Limpar
+                                   </button>
+
+                              </>
                          }
                     </fieldset>
                </form>
@@ -108,14 +121,15 @@ function Cadastre(props) {
                                    <td>{company.primaryActivity}</td>
                               </tr>
                          </table>
-
-                         {!sucess ?
-                              <button className="cadastre" type="submit" onClick={cadastre}>
-                                   Cadastrar {company.name}
-                              </button>
-                              :
-                              <Link to="/" >Voltar</Link>
-                         }
+                         <div className="footer">
+                              {!sucess ?
+                                   <button className="cadastreDates" type="submit" onClick={cadastre}>
+                                        Cadastrar {company.name}
+                                   </button>
+                                   :
+                                   <Link to="/" className="cadastreDates" >Voltar</Link>
+                              }
+                         </div>
 
                     </div>
                }

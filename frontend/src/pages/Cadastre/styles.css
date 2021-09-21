@@ -16,6 +16,14 @@
   background-color: #FAFAFA;
 }
 
+.heder {
+  display: flex;
+}
+
+.back {
+  position: absolute;
+}
+
 #form {
      width: 60%;
      display: flex;
@@ -41,7 +49,10 @@
   text-transform: uppercase 
 }
 
-.cadastre {
+.cadastreDates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   height: 50px;
   width: 250px;
@@ -51,8 +62,14 @@
   color: #fff
 }
 
-.cadastre:hover {
+.cadastreDates:hover {
   background-color: #ffff;
   border: 1px solid #306BAC;   
   color: #306BAC; 
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
