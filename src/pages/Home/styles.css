@@ -1,0 +1,58 @@
+#home
+{
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #FAFAFA;
+}
+
+.cadastre {
+     margin-top: 20px;
+     height: 50px;
+     width: 250px;
+     background-color: #0EAD69;
+     border: 1px solid #0EAD69;  
+     border-radius: 5px;
+     color: #fff
+}
+
+.cadastre:hover {
+     background-color: #ffff;
+     border: 1px solid #0EAD69;    
+}
+
+#btn {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-decoration: none; 
+     color: #fff;
+     text-transform: uppercase;
+}
+
+#btn:hover {
+     color: #0EAD69;  
+}
+
+Link {
+     text-decoration: none;      
+     color: #fff;
+}
+
+Link:hover {
+     color: #fff;
+}
+
+.table {
+     width: 95%;
+}
+
