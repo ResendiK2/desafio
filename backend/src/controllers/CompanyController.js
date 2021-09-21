@@ -22,7 +22,6 @@ module.exports = {
 
                let company = await Company.findOne({ cnpj });
 
-               console.log("company: " + company);
                if (!company) {
 
                     company = await Company.create({
@@ -47,9 +46,15 @@ module.exports = {
           try {
                const { cnpj } = req.body;
 
-               const apiResponde = await axios.get(`https://www.receitaws.com.br/v1/cnpj/${cnpj}`)
+               let cnpjClean = cnpj;
+               cnpjClean = cnpjClean.replace(".", "");
+               cnpjClean = cnpjClean.replace(".", "");
+               cnpjClean = cnpjClean.replace("/", "");
+               cnpjClean = cnpjClean.replace("-", "")
 
-               if (apiResponde.data.status == "OK") {
+               const apiResponse = await axios.get(`https://www.receitaws.com.br/v1/cnpj/${cnpjClean}`)
+
+               if (apiResponse.data.status == "OK") {
 
                     let {
                          atividade_principal,
@@ -59,7 +64,7 @@ module.exports = {
                          numero,
                          municipio,
                          cep
-                    } = apiResponde.data;
+                    } = apiResponse.data;
 
                     const address = `${logradouro}, ${numero}, ${municipio}, ${cep}`
 
@@ -77,11 +82,10 @@ module.exports = {
 
                     res.status(200).json(company);
                } else {
-                    res.status(400).send(apiResponde.data.message);
+                    res.status(400).send(apiResponse.data.message);
                }
           }
           catch (err) {
-               console.log(err.message);
                res.status(400).send("Erro no servidor, aguarde alguns minutos!");
           }
      }

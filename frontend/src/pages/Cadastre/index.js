@@ -15,18 +15,17 @@ function Cadastre(props) {
      const [cnpj, setCnpj] = useState("");
      const [company, setCompany] = useState();
      const [sucess, setSucess] = useState(false);
-     //const [cnpjClean, setCnpjClean] = useState("");
 
      const clean = (e) => {
           e.preventDefault();
 
           setCnpj("");
           setCompany("");
+          setSucess(false);
      }
 
      const search = (e) => {
           e.preventDefault();
-
           API.post("/search", {
                cnpj
           })
@@ -72,20 +71,13 @@ function Cadastre(props) {
                <form id="form">
                     <fieldset id="formContent">
                          <label>CNPJ:</label>
-                         <input
-                              name="cnpj"
-                              type="text"
-                              value={cnpj}
-                              onChange={(e) => { setCnpj(e.target.value) }}
-                              maxLength={14}
-                         />
-                         {/* <InputMask
+                         <InputMask
                               mask="99.999.999/9999-99"
                               name="cnpj"
                               type="text"
                               value={cnpj}
                               onChange={(e) => { setCnpj(e.target.value) }}
-                         /> */}
+                         />
                          {!company ?
                               <button id="cadastreButton" type="submit" onClick={search}>
                                    <FcSearch size={25} />
